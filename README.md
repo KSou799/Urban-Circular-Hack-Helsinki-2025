@@ -56,6 +56,15 @@ Every evening around **7 pm**, Helsinki experiences a **sharp electricity spik
 **MIT** — free to use and modify  
 
 ---
+## Skills Demonstrated
+
+- **Energy Systems Modeling** – Peak demand analysis and load curve simulation  
+- **Load Shifting Strategy Design** – Flexible device scheduling algorithms  
+- **Sustainability Impact Estimation** – CO₂ reduction and cost modeling  
+- **Data Visualization** – Demand curve comparison and simulation outputs  
+- **Python Development** – GUI application built with `tkinter`  
+- **Systems Engineering Thinking** – Urban infrastructure optimization modeling  
+- **Decision-Support Tool Design** – Translating engineering analysis into actionable insights
 
 ## Run the Simulator
 
@@ -63,3 +72,9 @@ Every evening around **7 pm**, Helsinki experiences a **sharp electricity spik
 git clone https://github.com/KSou799/Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland.git
 cd Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland
 python Hackathon_energy.py
+
+## Author
+**Sou Komiya**  
+Mechanical Engineering Student – Metropolia UAS  
+January 2026
+
