@@ -1,14 +1,14 @@
-# PeakShift Helsinki – Energy Peak Simulator
+# FlexiCity – Energy Peak Simulator  
 
 **Urban Circular Hack Helsinki 2025** — Helsinki, Finland  
 
 ---
 
-## Why PeakShift Helsinki?
+## Why FlexiCity?
 
-Every evening around **7 pm**, Helsinki experiences a **sharp electricity spike**. EVs charge, heaters run, dinner is cooked, and appliances draw power simultaneously. This drives up electricity prices, stresses the grid, and could force the city to spend **€2 billion+ on upgrades over 5–7 years**.  
+Every evening around **7 pm**, Helsinki experiences a **sharp electricity spike**. EVs charge, heaters run, dinner is cooked, and appliances draw power simultaneously. This drives up electricity prices, stresses the grid, and could force the city to spend **€2 billion+ on upgrades over 5–7 years**.  
 
-**PeakShift Helsinki** demonstrates how **smart scheduling of flexible devices** can flatten the peak, saving money, cutting CO₂ emissions, and reducing infrastructure strain.  
+**FlexiCity** demonstrates how **smart scheduling of flexible devices** can flatten the peak, saving money, cutting CO₂ emissions, and reducing infrastructure strain.  
 
 ---
 
@@ -18,7 +18,7 @@ Every evening around **7 pm**, Helsinki experiences a **sharp electricity spik
 |---------|----------------|
 | **User Savings** | Up to **€16+ per day** |
 | **CO₂ Reduction** | Up to **3,400+ tCO₂/year** |
-| **City Grid** | Delay/avoid **€2 billion+ upgrades** |
+| **City Grid** | Delay/avoid **€2 billion+ upgrades** |
 
 ---
 
@@ -37,10 +37,10 @@ Every evening around **7 pm**, Helsinki experiences a **sharp electricity spik
 
 ## Screenshot
 
-![PeakShift Helsinki Screenshot](screenshot.png)  
+![FlexiCity Screenshot](screenshot.png)
 
 *Top graph:* peak demand  
-*Bottom graph:* demand flattened via smart scheduling
+*Bottom graph:* demand flattened via smart scheduling  
 
 ---
 
@@ -65,20 +65,21 @@ Every evening around **7 pm**, Helsinki experiences a **sharp electricity spik
 - **Data Visualization** – Demand curve comparison and simulation outputs  
 - **Python Development** – GUI application built with `tkinter`  
 - **Systems Engineering Thinking** – Urban infrastructure optimization modeling  
-- **Decision-Support Tool Design** – Translating engineering analysis into actionable insights
+- **Decision-Support Tool Design** – Translating engineering analysis into actionable insights  
 
 ---
 
 ## Author
+
 **Sou Komiya**  
 Mechanical Engineering Student – Metropolia UAS  
-December 2025
+December 2025  
 
 ---
 
 ## Run the Simulator
+
 ```bash
 git clone https://github.com/KSou799/Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland.git
 cd Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland
 python Hackathon_energy.py
-
