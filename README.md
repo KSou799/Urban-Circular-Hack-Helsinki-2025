@@ -1,14 +1,14 @@
-# FlexiCity – Helsinki Energy Peak Simulator
+# PeakShift Helsinki – Energy Peak Simulator
 
 **Urban Circular Hack Helsinki 2025** — Helsinki, Finland  
 
 ---
 
-## Why FlexiCity?
+## Why PeakShift Helsinki?
 
 Every evening around **7 pm**, Helsinki sees a **sharp electricity spike**. Everyone plugs in EVs, turns on heating, cooks dinner, and runs appliances at the same time. This drives up prices, strains the grid, and can force the city to spend **€2 billion+ on upgrades** over 5–7 years.  
 
-**FlexiCity** shows how **smart scheduling of flexible devices** can flatten the peak, saving money, cutting CO₂, and easing city infrastructure pressure.  
+**PeakShift Helsinki** shows how **smart scheduling of flexible devices** can flatten the peak, saving money, cutting CO₂, and easing city infrastructure pressure.  
 
 ---
 
@@ -37,7 +37,7 @@ Every evening around **7 pm**, Helsinki sees a **sharp electricity spike**. Ever
 
 ## Screenshot
 
-![FlexiCity App Screenshot](screenshot.png)  
+![PeakShift Helsinki Screenshot](screenshot.png)  
 
 The top graph shows the peak. The bottom shows flattened demand after smart scheduling.
 
@@ -51,3 +51,9 @@ The top graph shows the peak. The bottom shows flattened demand after smart sche
 git clone https://github.com/KSou799/Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland.git
 cd Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland
 python Hackathon_energy.py
+Built With
+
+Python + tkinter (standard library only)
+License
+
+MIT — free to use and modify
