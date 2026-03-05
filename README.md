@@ -4,7 +4,7 @@
 
 ---
 
-## Why FlexiCity?
+## Why ?
 
 Every evening around **7 pm**, Helsinki experiences a **sharp electricity spike**. EVs charge, heaters run, dinner is cooked, and appliances draw power simultaneously. This drives up electricity prices, stresses the grid, and could force the city to spend **€2 billion+ on upgrades over 5–7 years**.  
 
