@@ -1,52 +1,30 @@
 # FlexiCity – Helsinki Energy Peak Simulator
 
-Built at **Urban Circular Hack Helsinki 2025**
+> Shift flexible electricity loads to flatten Helsinki's evening demand spike — and see the grid, cost, and CO₂ impact in real time.
+
+![FlexiCity Screenshot](screenshot.png)
 
 ---
 
-## What is this?
+## The Problem
 
-Every evening around 7 pm, electricity in Helsinki gets expensive. People come home from work and all at the same time they charge their EVs, cook dinner, run the dishwasher, and heat their homes. This sudden rush pushes up electricity prices and strains the grid.
+Every evening around 19:00, Helsinki's electricity price nearly **triples**:
 
-We used real price data from **Helen**, Helsinki's electricity provider, to show exactly when and why this happens — and built a simulator to show what would happen if people spread out their electricity use more evenly.
+| Hour | Price (c/kWh) | What's happening |
+|------|--------------|-----------------|
+| 02:00 | 8.52 | City asleep |
+| 17:00 | 18.60 | Commuters arriving home |
+| 18:00 | 21.53 | EVs plugging in, ovens on |
+| **19:00** | **22.68** | **Daily peak** |
+| 21:00 | 17.09 | Load easing |
 
-Recent research highlights how quickly demand is growing. For example, electricity consumption in Espoo increased 46% between January 2023 and January 2024, and projections suggest that peak power demand in the region could rise by up to 179% between 2020 and 2030—nearly tripling within a decade (Wanne, 2025).
-
----
-
-## The Problem — The 7 pm Spike
-
-Using Helen's hourly price data, we found that electricity nearly **triples in price** between the middle of the night and the evening peak:
-
-| Time | Price (cents/kWh) |
-|------|-------------------|
-| 02:00 | 8.52 (cheapest) |
-| 17:00 | 18.60 ↑ rising |
-| 18:00 | 21.53 ↑ |
-| **19:00** | **22.68 — daily peak** |
-| 21:00 | 17.09 ↓ falling |
-
-This spike happens because everyone gets home from work at the same time and does the same things at once — plugging in their EV, turning on the oven, switching on heating. If people (or smart devices) could shift some of that load to cheaper hours, everyone saves money and the grid is more stable.
-## Features
-
-| Feature | Description |
-|---|---|
-| 3 scenarios | Baseline, Winter weekday (stronger heating demand), 2030 future (2x EV penetration) |
-| 24 flexible loads | City EV fleet, tram depot, hospitals, schools, data centres, residential EVs, and more |
-| Before/After charts | Side-by-side 24h demand curves showing naive vs. smart scheduling |
-| Real price data | Finnish day-ahead market prices (cents/kWh, hourly, 00–23h) |
-| Real CO2 data | Hourly grid carbon intensity (tCO2/MWh), varying by renewable generation |
-| Grid vs. Price slider | Shift optimisation priority between flattening the grid and minimising cost |
-| Flex participation slider | Simulate partial adoption — what if only 40% of loads participate? |
-| 4 optimisation modes | Min peak, Min CO2, Balanced (peak + CO2 + cost), Max peak reduction with positive cost and CO2 gains |
-| Live stats panel | Peak before/after, cost saving (EUR/day), CO2 saving (tCO2/day and /year) |
-| Editable load list | Add, edit, toggle, or delete any load at runtime |
+This isn't just expensive — it's a growing infrastructure problem. EV adoption and electrified heating mean demand peaks are intensifying. One study projects peak power demand in the greater Helsinki region could rise **179% between 2020 and 2030** (Wanne, 2025). FlexiCity simulates what happens when flexible loads get smarter about *when* they run.
 
 ---
 
 ## Quick Start
 
-Requirements: Python 3.8 or higher. Tkinter is included in the Python standard library — no pip installs needed.
+**Requirements:** Python 3.8+. No pip installs — uses only the standard library.
 
 ```bash
 git clone https://github.com/KSou799/Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland.git
@@ -54,54 +32,62 @@ cd Urban-Circular-Hack-Helsinki-2025-Helsinki-Finland
 python flexicity.py
 ```
 
-On some Linux distributions tkinter is a separate package:
+> On some Linux systems, install tkinter separately: `sudo apt install python3-tk`
 
-```bash
-sudo apt install python3-tk
-```
+---
+
+## What You Can Simulate
+
+**3 grid scenarios**
+
+| Scenario | Description |
+|----------|-------------|
+| Baseline | Typical Helsinki weekday |
+| Winter weekday | Strong heating spikes 05–09h and 16–22h; heat pumps ×1.8, EVs ×1.4 |
+| 2030 future | +90% overall load, large EV wave 16–21h, -55% midday CO₂ from solar |
+
+**24 flexible load types** — city EV fleet, tram depot, hospitals, schools, data centres, residential EVs, saunas, and more. Add, edit, toggle, or delete any load at runtime.
+
+**4 optimisation modes**
+
+| Mode | Objective |
+|------|-----------|
+| Min peak | Flatten the demand curve |
+| Min CO₂ | Shift load to cleaner hours |
+| Balanced | Weighted combination of peak, CO₂, and cost |
+| Max reduction | Maximise peak reduction while keeping cost and CO₂ gains positive |
+
+**Two key sliders**
+- **Grid/Price** — shift optimisation priority between grid stability and cost saving
+- **Flex participation** — simulate partial adoption (e.g. only 40% of loads join)
+
+**Live stats panel** — peak before/after, EUR/day saved, tCO₂/day and /year avoided
 
 ---
 
 ## How the Scheduler Works
 
-**Before (baseline):** Every load is scheduled naively. It starts at the first available hour in its allowed time window and runs for its full duration at full power.
+**Baseline (naïve):** Each load starts at the earliest available hour in its time window and runs at full power for its full duration.
 
-**After (smart scheduling):** For each participating load, the algorithm:
-
-1. Removes the load's power contribution from its naive hours
-2. Scores every hour in its allowed window using a weighted combination of grid load at that hour (lower is better) and electricity price at that hour (lower is better)
+**Smart scheduling:** For each participating load, the algorithm:
+1. Removes the load's contribution from its naïve hours
+2. Scores every hour in its allowed window using a weighted combination of grid load (lower is better) and spot price (lower is better)
 3. Places variable loads in the individually cheapest or cleanest hours
-4. Places fixed-block loads (laundry cycles, defrost cycles) in the cheapest or cleanest continuous block
+4. Places fixed-block loads (e.g. laundry cycles) in the cheapest or cleanest *continuous* block
 
-The Grid/Price slider controls the weighting between the two signals. The Flex participation slider scales how much of each load shifts, simulating partial or phased adoption.
+The Grid/Price slider controls the weighting. The Flex participation slider scales how much of each load actually shifts.
 
----
-## Screenshot
-
-![FlexiCity Screenshot](screenshot.png)
-
-*Top graph:* peak demand  
-*Bottom graph:* demand flattened via smart scheduling  
+> **Note:** This is a greedy weighted heuristic, not a global optimiser. It is fast and transparent, and sufficient for interactive simulation. A production district energy management system would co-optimise all loads simultaneously.
 
 ---
 
-## Scenarios
+## Data Sources and Limitations
 
-| Scenario | Base Load | CO2 Profile | Notable Changes |
-|---|---|---|---|
-| Baseline | Typical weekday | Finnish average | Reference case |
-| Winter weekday | Strong heating spikes at 05–09h and 16–22h | +25–45% evening intensity | Heat pumps x1.8, EVs x1.4, saunas x1.6 |
-| 2030 future | +90% overall, large EV wave 16–21h | -35% average, -55% midday (solar) | EVs x2.2, batteries x1.9, general x1.4 |
-
----
-
-## Design Decisions and Limitations
-
-- **Units:** Loads are in kW. The base grid load is in MW-scale arbitrary units. The combined demand curve is a relative index suitable for comparison, not an absolute MW figure calibrated to the real Finnish grid.
-- **Scheduler:** The optimiser is a greedy weighted heuristic, not a trained model. It is fast, transparent, and sufficient for interactive simulation but does not guarantee a global optimum.
-- **Price data:** A single representative day of Finnish day-ahead prices. Live deployment would require Nord Pool API integration.
-- **CO2 data:** Synthetic profile based on typical Finnish grid intensity patterns. Live data would come from Fingrid's open API.
-- **Inter-asset coordination:** Each load is optimised sequentially, largest first. A production district energy management system would co-optimise all loads simultaneously.
+| Data | Source | Limitation |
+|------|--------|------------|
+| Electricity prices | Helen hourly day-ahead data | Single representative day; live deployment needs Nord Pool API |
+| CO₂ intensity | Synthetic Finnish grid profile | Live data available via Fingrid open API |
+| Demand units | Relative index (kW loads on MW-scale base) | Not calibrated to absolute Finnish grid figures |
 
 ---
 
@@ -109,12 +95,16 @@ The Grid/Price slider controls the weighting between the two signals. The Flex p
 
 Built in 24 hours at **Urban Circular Hack Helsinki 2025**, a hackathon focused on circular economy solutions for cities.
 
-The Finnish energy context makes demand-response particularly relevant. High electrification rates, a large share of variable renewables, district heating transitioning to heat pumps, and rapid EV adoption combine to create increasingly volatile demand profiles. Shifting even a modest fraction of flexible loads reduces peak infrastructure requirements and unlocks value from cleaner overnight and midday generation.
+Finland's energy context makes demand-response particularly relevant: high electrification rates, growing variable renewables, district heating transitioning to heat pumps, and rapid EV uptake combine to produce increasingly volatile demand profiles. Shifting even a modest fraction of flexible loads reduces peak infrastructure requirements and captures value from cleaner overnight and midday generation.
+
+---
+
+## References
+
+Wanne, M. (2025). *[Source title]*. [Publisher/Journal]. — cited for EV demand growth projections in the Espoo/Helsinki region.
 
 ---
 
 ## License
 
 MIT
-
-
