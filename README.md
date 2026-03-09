@@ -18,7 +18,7 @@ Every evening around 19:00, Helsinki's electricity price nearly **triples**:
 | **19:00** | **22.68** | **Daily peak** |
 | 21:00 | 17.09 | Load easing |
 
-This isn't just expensive — it's a growing infrastructure problem. EV adoption and electrified heating mean demand peaks are intensifying. One study projects peak power demand in the greater Helsinki region could rise **179% between 2020 and 2030** (Wanne, 2025). FlexiCity simulates what happens when flexible loads get smarter about *when* they run.
+This isn't just expensive — it's a growing infrastructure problem. EV adoption and electrified heating mean demand peaks are intensifying. One study projects peak power demand in the greater Helsinki region could rise **179% between 2020 and 2030**. FlexiCity simulates what happens when flexible loads get smarter about *when* they run.
 
 ---
 
