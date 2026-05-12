@@ -1,5 +1,5 @@
 # FlexiCity
-
+![FlexiCity dashboard showing before/after load curves, comparison and price graphs, and peak/cost/CO₂ stats](docs/screenshot.png)
 **Shift flexible electricity loads to flatten Helsinki's evening demand spike, and see the grid, cost, and CO₂ impact in real time.**
 
 A 24-hour interactive simulator built for **Urban Circular Hack Helsinki 2025** (U!REKA European University hackathon), for the challenge:
