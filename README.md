@@ -69,7 +69,7 @@ Requires Python 3.x with `tkinter` (bundled with most Python installs). No exter
 python Flexi_City.py
 ```
 
-### Using the app
+### Using the Program
 
 1. Move **Flex participation** to set how much of each load the city can actually shift (0 = nobody participates, 100 = full city-wide flexibility).
 2. Move **Priority** toward *Grid* to flatten the curve, or toward *Price* to chase cheap hours.
@@ -121,10 +121,12 @@ Chosen challenge: *How might we prepare cities for the increasing demand in elec
 - Nord Pool day-ahead spot price patterns (proxy)
 - Fingrid hourly CO₂ intensity (Nordic mix proxy)
 
-## Team
+## Team 7
 
-*Add your team members here before submitting.*
+-Robert Winiarczyk
+-Dimitris
+-Alkut
 
 ## License
 
-*Choose a license (MIT is a common default for hackathon code) and add a `LICENSE` file.*
+MIT
