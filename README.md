@@ -28,7 +28,7 @@ Most large electricity loads in a city don't actually need to run *right now*. A
 
 | Strategy | Behaviour |
 |---|---|
-| **Before** *(dumb)* | Every asset starts at the earliest hour of its allowed window. The "plug in when I get home" default. |
+| **Before** *(naive)* | Every asset starts at the earliest hour of its allowed window. The "plug in when I get home" default. |
 | **After** *(smart)* | Each asset is shifted inside its allowed window to the hours that minimise a weighted blend of grid load and electricity price. |
 
 Two sliders let the user explore tradeoffs live:
@@ -45,7 +45,7 @@ Four live graphs:
 1. **Before**: naive load curve over 24 h
 2. **After**: smart-scheduled load curve over 24 h
 3. **Comparison**: both overlaid
-4. **Price curve**: Nordic spot-price proxy (cents/kWh)
+4. **Price curve**: hourly Nord Pool price recorded from Helen (cents/kWh)
 
 And six headline numbers, updated as you move the sliders:
 
@@ -129,6 +129,3 @@ Chosen challenge: *How might we prepare cities for the increasing demand in elec
 - Dimitrios Pontikakis Batana
 - Ailikuti Tayier
 
-## License
-
-MIT
