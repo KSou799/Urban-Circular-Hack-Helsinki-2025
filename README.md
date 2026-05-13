@@ -126,9 +126,9 @@ Chosen challenge: *How might we prepare cities for the increasing demand in elec
 ## Team 7
 
 - Robert Winiarczyk
-- Dimitris
-- Alkut
+- Dimitrios Pontikakis Batana
+- Ailikuti Tayier
 
 ## License
 
-Released under the MIT License. See the `LICENSE` file.
+MIT
