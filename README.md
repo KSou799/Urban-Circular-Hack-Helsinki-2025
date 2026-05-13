@@ -28,7 +28,7 @@ Most large electricity loads in a city don't actually need to run *right now*. A
 
 | Strategy | Behaviour |
 |---|---|
-| **Before** *(naive)* | Every asset starts at the earliest hour of its allowed window. The "plug in when I get home" default. |
+| **Before** *(dumb)* | Every asset starts at the earliest hour of its allowed window. The "plug in when I get home" default. |
 | **After** *(smart)* | Each asset is shifted inside its allowed window to the hours that minimise a weighted blend of grid load and electricity price. |
 
 Two sliders let the user explore tradeoffs live:
